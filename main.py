@@ -134,7 +134,7 @@ def newton(x, y, newton_f1, newton_f2, eps):
 
 
 def result_print(res):
-    print("x = %.4f y = %.4f" % (res[0], res[1]))
+    print("x = %.5f y = %.5f" % (res[0], res[1]))
     print("Number of iteration = %d" % res[2])
 
 
@@ -158,7 +158,7 @@ result_print(res3)
 
 print("\nCheck with use SciPy:")
 X = opt.fsolve(func, (x0, y0))[0]
-print(X, f1(X))
+print("x = %0.5f y = %0.5f" % (X, f1(X)))
 
 x_gr = np.arange(-0.999, 0, 0.01)
 plt.grid(True)
