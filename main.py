@@ -2,6 +2,7 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 import scipy.optimize as opt
+import timeit
 
 
 def f1(x):
@@ -145,16 +146,25 @@ y0 = -0.2
 print("Initial approximation: x0 = %.1f y0 = %.1f" % (x0, y0))
 
 print("\nIteration method:")
+start_time = timeit.default_timer()
 res1 = iteration(x0, y0, iter_func1, iter_func2, e)
 result_print(res1)
+time = (timeit.default_timer() - start_time) * 1000
+print("Runtime in milliseconds: %.3f" % time)
 
 print("\nSeidel method:")
+start_time = timeit.default_timer()
 res2 = seidel(x0, y0, iter_func1, iter_func2, e)
 result_print(res2)
+time = (timeit.default_timer() - start_time) * 1000
+print("Runtime in milliseconds: %.3f" % time)
 
 print("\nNewton method:")
+start_time = timeit.default_timer()
 res3 = newton(x0, y0, newton_func1, newton_func2, e)
 result_print(res3)
+time = (timeit.default_timer() - start_time) * 1000
+print("Runtime in milliseconds: %.3f" % time)
 
 print("\nCheck with use SciPy:")
 X = opt.fsolve(func, (x0, y0))[0]
